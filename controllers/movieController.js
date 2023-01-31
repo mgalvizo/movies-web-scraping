@@ -10,6 +10,7 @@ exports.getMovieResults = async (req, res) => {
         const url = req.query.searchTerm;
         // Setting headless to false will open a browser window
         const browser = await puppeteer.launch({ headless: false });
+        // const browser = await puppeteer.launch({args: ['--no-sandbox']}); // For heroku deployment
         const page = await browser.newPage();
 
         const data = await scrapeData(url, page);

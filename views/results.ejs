@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+<h1>Search results: <span><%= data.title.toUpperCase() %></span></h1>
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <img
+                src="https://www.themoviedb.org<%= data.imgUrl %>"
+                class="img-fluid rounded-start"
+                alt="..."
+            />
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <h5 class="card-title"><%= data.title %></h5>
+                <p class="card-text"><%= data.overview %></p>
+                <p class="card-text">
+                    <small class="text-muted"
+                        >Date released: <%= data.releaseDate %></small
+                    >
+                </p>
+                <p class="card-text">
+                    <small class="text-muted"
+                        >User score: <%= data.score %></small
+                    >
+                </p>
+                <h5 class="card-title">Main Cast:</h5>
+                <ul class="list-group list-group-flush">
+                    <% data.cast.forEach(member => { %>
+                    <li class="list-group-item">
+                        <div><%= member.name %></div>
+                        <small class="text-muted"
+                            >Character: <%= member.character %></small
+                        >
+                    </li>
+
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

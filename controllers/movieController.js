@@ -7,6 +7,7 @@ exports.getSearchMovieForm = (req, res) => {
 
 exports.getMovieResults = async (req, res) => {
     try {
+        // has to be a themoviedb url of a move
         const url = req.query.searchTerm;
         // Setting headless to false will open a browser window
         const browser = await puppeteer.launch({ headless: false });
